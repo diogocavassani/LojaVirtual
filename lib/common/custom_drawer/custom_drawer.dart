@@ -8,22 +8,22 @@ class CustomDrawer extends StatelessWidget {
       child: ListView(
         // ignore: prefer_const_literals_to_create_immutables
         children: <Widget>[
-          DrawerTitle(
+          const DrawerTitle(
             iconData: Icons.home,
             title: 'Inicio',
             page: 0,
           ),
-          DrawerTitle(
+          const DrawerTitle(
             iconData: Icons.list,
             title: 'Produtos',
             page: 1,
           ),
-          DrawerTitle(
+          const DrawerTitle(
             iconData: Icons.playlist_add_check,
             title: 'Meus Pedidos',
             page: 2,
           ),
-          DrawerTitle(
+          const DrawerTitle(
             iconData: Icons.location_on,
             title: 'Lojas',
             page: 3,
