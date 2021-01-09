@@ -22,6 +22,15 @@ class _LoginScreenState extends State<LoginScreen> {
       appBar: AppBar(
         title: const Text('Entrar'),
         centerTitle: true,
+        actions: <Widget>[
+          FlatButton(
+            onPressed: () {
+              Navigator.of(context).pushReplacementNamed('/signup');
+            },
+            textColor: Colors.white,
+            child: const Text('Criar Conta'),
+          )
+        ],
       ),
       body: Center(
         child: Card(
@@ -94,7 +103,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                         );
                                       },
                                       onSuccess: () {
-                                        //TODO:Fechar Tela de login
+                                        Navigator.of(context).pop();
                                       });
                                 }
                               },
