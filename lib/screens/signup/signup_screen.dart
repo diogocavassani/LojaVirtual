@@ -50,8 +50,9 @@ class SignUpScreen extends StatelessWidget {
                         validator: (email) {
                           if (email.isEmpty) {
                             return 'Campo Obrigatório';
-                          } else if (!emailValid(email))
+                          } else if (!emailValid(email)) {
                             return 'E-mail inválido';
+                          }
                           return null;
                         },
                         onSaved: (email) => user.email = email,
@@ -130,7 +131,7 @@ class SignUpScreen extends StatelessWidget {
                                   );
                                 },
                           child: userManager.loading
-                              ? CircularProgressIndicator(
+                              ? const CircularProgressIndicator(
                                   valueColor:
                                       AlwaysStoppedAnimation(Colors.white),
                                 )

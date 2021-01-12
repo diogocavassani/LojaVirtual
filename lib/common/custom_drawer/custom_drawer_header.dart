@@ -14,7 +14,7 @@ class CustomDrawerHeader extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
-            Text(
+            const Text(
               "Loja \nTeste",
               style: TextStyle(
                 fontSize: 32,
@@ -25,7 +25,7 @@ class CustomDrawerHeader extends StatelessWidget {
               'Olá, ${userManager.user?.nome ?? ''}',
               overflow: TextOverflow.ellipsis,
               maxLines: 2,
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style: const TextStyle(fontWeight: FontWeight.bold),
             ),
             GestureDetector(
               onTap: () {
