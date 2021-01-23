@@ -13,6 +13,7 @@ class User {
   String email;
   String pass;
   String confirmPass;
+  bool admn = false;
 
   DocumentReference get firestoreRef =>
       Firestore.instance.document('users/$id');

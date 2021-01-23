@@ -14,7 +14,7 @@ class HomeManager extends ChangeNotifier {
     firestore.collection('home').snapshots().listen((snapshot) {
       sections.clear();
       for (final DocumentSnapshot document in snapshot.documents) {
-        sections.add(Section.FromDocument(document));
+        sections.add(Section.fromDocument(document));
       }
       notifyListeners();
     });
