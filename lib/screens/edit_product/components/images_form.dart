@@ -49,7 +49,7 @@ class ImagesForm extends StatelessWidget {
                         Align(
                           alignment: Alignment.topRight,
                           child: IconButton(
-                              icon: Icon(Icons.remove),
+                              icon: const Icon(Icons.remove),
                               color: Colors.red,
                               onPressed: () {
                                 state.value.remove(image);
