@@ -108,6 +108,14 @@ class CartManager extends ChangeNotifier {
     return true;
   }
 
+  void clear() {
+    for (final cartProdutc in items) {
+      user.cartReference.document(cartProdutc.id).delete();
+    }
+    items.clear();
+    notifyListeners();
+  }
+
   //ADDRESS
   bool get isAddressValid => address != null && deliveryPrice != null;
 
