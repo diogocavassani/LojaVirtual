@@ -6,13 +6,15 @@ import 'package:loja_virtual/models/product.dart';
 
 class CheckoutManager extends ChangeNotifier {
   CartManager cartManager;
-  final Firestore firestore = Firestore.instance;
+
   bool _loading = false;
   bool get loading => _loading;
   set loading(bool value) {
     _loading = value;
     notifyListeners();
   }
+
+  final Firestore firestore = Firestore.instance;
 
   // ignore: use_setters_to_change_properties
   void updateCart(CartManager cartManager) {
@@ -36,7 +38,7 @@ class CheckoutManager extends ChangeNotifier {
     order.save();
 
     cartManager.clear();
-    onSuccess();
+    onSuccess(order);
     loading = false;
   }
 

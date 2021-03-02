@@ -37,7 +37,7 @@ class CartScreen extends StatelessWidget {
                 buttonText: 'Continuar para Endereço',
                 onPressed: cartManager.isCartValid
                     ? () {
-                        Navigator.of(context).pushNamed('/adress');
+                        Navigator.of(context).pushNamed('/address');
                       }
                     : null,
               )
