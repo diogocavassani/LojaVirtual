@@ -92,54 +92,52 @@ class SignUpScreen extends StatelessWidget {
                             user.confirmPass = confirmPass,
                       ),
                       const SizedBox(height: 16),
-                      SizedBox(
-                        height: 44,
-                        child: RaisedButton(
-                          color: Theme.of(context).primaryColor,
-                          disabledColor:
-                              Theme.of(context).primaryColor.withAlpha(100),
-                          textColor: Colors.white,
-                          onPressed: userManager.loading
-                              ? null
-                              : () {
-                                  formKey.currentState.validate();
-                                  formKey.currentState.save();
-                                  if (user.pass != user.confirmPass) {
+                      RaisedButton(
+                        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        color: Theme.of(context).primaryColor,
+                        disabledColor:
+                            Theme.of(context).primaryColor.withAlpha(100),
+                        textColor: Colors.white,
+                        onPressed: userManager.loading
+                            ? null
+                            : () {
+                                formKey.currentState.validate();
+                                formKey.currentState.save();
+                                if (user.pass != user.confirmPass) {
+                                  scaffoldKey.currentState.showSnackBar(
+                                    const SnackBar(
+                                      content: Text('Senha diferentes'),
+                                      backgroundColor: Colors.red,
+                                    ),
+                                  );
+                                  return;
+                                }
+                                userManager.signUp(
+                                  user: user,
+                                  onSuccess: () {
+                                    debugPrint('Sucesso');
+                                    Navigator.of(context).pop();
+                                  },
+                                  onFail: (e) {
+                                    debugPrint(e.toString());
                                     scaffoldKey.currentState.showSnackBar(
                                       const SnackBar(
-                                        content: Text('Senha diferentes'),
+                                        content: Text('Cadastro incorreto'),
                                         backgroundColor: Colors.red,
                                       ),
                                     );
-                                    return;
-                                  }
-                                  userManager.signUp(
-                                    user: user,
-                                    onSuccess: () {
-                                      debugPrint('Sucesso');
-                                      Navigator.of(context).pop();
-                                    },
-                                    onFail: (e) {
-                                      debugPrint(e.toString());
-                                      scaffoldKey.currentState.showSnackBar(
-                                        const SnackBar(
-                                          content: Text('Cadastro incorreto'),
-                                          backgroundColor: Colors.red,
-                                        ),
-                                      );
-                                    },
-                                  );
-                                },
-                          child: userManager.loading
-                              ? const CircularProgressIndicator(
-                                  valueColor:
-                                      AlwaysStoppedAnimation(Colors.white),
-                                )
-                              : const Text(
-                                  'Criar Conta',
-                                  style: TextStyle(fontSize: 18),
-                                ),
-                        ),
+                                  },
+                                );
+                              },
+                        child: userManager.loading
+                            ? const CircularProgressIndicator(
+                                valueColor:
+                                    AlwaysStoppedAnimation(Colors.white),
+                              )
+                            : const Text(
+                                'Criar Conta',
+                                style: TextStyle(fontSize: 15),
+                              ),
                       )
                     ],
                   );

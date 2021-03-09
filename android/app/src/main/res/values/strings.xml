@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Run fast</string>
+
+
+    <string name="facebook_app_id">266907841582086</string>
+
+    <string name="fb_login_protocol_scheme">fb266907841582086</string>
+
+</resources>
